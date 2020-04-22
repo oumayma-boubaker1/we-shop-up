@@ -30,86 +30,79 @@ function verifyToken(req, res, next) {
   next()
 }
 
-router.get('/events', (req,res) => {
-  let events = [
+router.get('/home', (req,res) => {
+  let home = [
     {
       "_id": "1",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "chaima",
+      "description": "test_mryoul",
+     
     },
     {
       "_id": "2",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "oumayma",
+      "description": "test_mryoul",
+     
     },
     {
       "_id": "3",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "maaher",
+      "description": "test_mryoul",
+     
     },
     {
       "_id": "4",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "wassim",
+      "description": "test_mryoul",
+    
     },
     {
       "_id": "5",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "_id": "6",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "maissa",
+      "description": "test_mryoul",
+     
     }
+  
+    
+  
   ]
-  res.json(events)
+  res.json(home)
 })
 
 router.get('/special', verifyToken, (req, res) => {
   let specialEvents = [
     {
       "_id": "1",
-      "name": "Auto Expo Special",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "chaima",
+      "description": "test_admin",
+     
     },
     {
       "_id": "2",
-      "name": "Auto Expo Special",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "oumayma",
+      "description": "test_admin",
+     
     },
     {
       "_id": "3",
-      "name": "Auto Expo Special",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "maaher",
+      "description": "test_admin",
+     
     },
     {
       "_id": "4",
-      "name": "Auto Expo Special",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "wassim",
+      "description": "test_admin",
+     
     },
     {
       "_id": "5",
-      "name": "Auto Expo Special",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "_id": "6",
-      "name": "Auto Expo Special",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
+      "name": "maissa",
+      "description": "test_admin",
+     
     }
+  
+    
   ]
   res.json(specialEvents)
 })

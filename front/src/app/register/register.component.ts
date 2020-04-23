@@ -8,17 +8,19 @@ import { Router } from '@angular/router'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  focus;
+  focus1;
+  focus2;
+  errorMessage: string = ''
 
-  registerUserData = {
-
-  }
+  registerUserData = {}
   constructor(private _auth: AuthService,
               private _router: Router) { }
 
   ngOnInit() {
   }
 
-  registerUser() {
+  registerUser(form) {
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {

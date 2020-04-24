@@ -56,11 +56,7 @@
                             </div>
 
 
-                            <input ngModel name="email" #email="ngModel" type="email" class="form-control" placeholder="Email" required email (focus)="focus1=true" (blur)="focus1=false">
-                            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
-                            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your input doesn't match email format</div>
-
-
+                            <input type="text" class="form-control rounded-0" [(ngModel)]="registerUserData.email" name="email" required email (focus)="focus1=true" (blur)="focus1=false">
 
 
                           </div>
@@ -71,13 +67,10 @@
                               <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                             </div>
 
+   <!--   <input type="text" class="form-control rounded-0" [(ngModel)]="registerUserData.email" name="email" required> -->
 
+   <input type="password" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0"  required minlength="6" (focus)="focus2=true" (blur)="focus2=false">
 
-                            <input ngModel name="password" #password="ngModel" type="password" class="form-control" placeholder="Password"
-                            required minlength="6" (focus)="focus2=true" (blur)="focus2=false">
-                          <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">Password is required</div>
-                          <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Password should be 6+
-                            charachters</div>
 
 
 

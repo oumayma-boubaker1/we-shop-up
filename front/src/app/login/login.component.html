@@ -32,10 +32,9 @@
                                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <!--   <input type="text" class="form-control rounded-0" [(ngModel)]="loginUserData.email" name="email" required> -->
+                                <!--   svp pourquoi si je fait tow way baiding ne marche pas  [(ngModel)]="loginUserData.email" name="email" required> -->
+                                <input type="text" class="form-control rounded-0" [(ngModel)]="loginUserData.email" name="email" required email  (focus)="focus=true" (blur)="focus=false">
 
-                                <input ngModel ="registerUserData.email" name="email" #email="ngModel" type="email" class="form-control" placeholder="Email" required email  (focus)="focus=true" (blur)="focus=false">
-                                <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
-                                <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your input doesn't match email format</div>
 
 
 

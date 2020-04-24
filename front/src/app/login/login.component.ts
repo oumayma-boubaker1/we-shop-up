@@ -13,8 +13,7 @@ export class LoginComponent implements OnInit {
   focus1;
   loginError: string = ''
 
-  loginUserData = {}
-
+  loginUserData: User  ;
   constructor(private _auth: AuthService,
               private _router: Router) { }
 
@@ -26,8 +25,8 @@ export class LoginComponent implements OnInit {
   //this._auth.loginUser(this.loginUserData)
 
   loginUser (form) {
-    let data: User = form.value
-    this._auth.loginUser(data.password)
+
+    this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)

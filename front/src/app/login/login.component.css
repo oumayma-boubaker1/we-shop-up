@@ -1,0 +1,28 @@
+.ng-invalid.ng-touched {
+  border-color : red;
+}
+
+
+.btnlogin{
+  background-color: rgb(7, 74, 219) !important;
+}
+.txtsign{
+  text-align: center;
+  font-weight: 400;
+}
+.imgphoto{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+
+}
+.txterror{
+  color: red !important;
+  padding-top: 1% !important;
+
+}
+.headbar{
+  height : 60px !important;
+}

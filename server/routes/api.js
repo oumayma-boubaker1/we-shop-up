@@ -64,7 +64,7 @@ router.get('/home', (req,res) => {
   res.json(home)
 })
 
-router.get('/special', verifyToken, (req, res) => {
+router.get('/special-events', verifyToken, (req, res) => {
   let specialEvents = [
     {
       "_id": "1",

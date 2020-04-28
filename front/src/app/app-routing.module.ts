@@ -17,7 +17,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'special',
+    path: 'sspecial-events',
     canActivate: [AuthGuard],
     component: SpecialEventsComponent
   },

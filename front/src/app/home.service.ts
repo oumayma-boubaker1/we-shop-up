@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class HomeService {
-  private _homesUrl = "http://localhost:3000/api/events";
-  private _specialEventsUrl = "http://localhost:3000/api/special";
+  private _homesUrl = "http://localhost:3000/api/home";
+  private _specialEventsUrl = "http://localhost:3000/api/special-events";
 
   constructor(private http: HttpClient) { }
 

@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit {
 // loginUser () {
   //this._auth.loginUser(this.loginUserData)
 
-  loginUser (form) {
+  loginUser (f) {
 
     this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)
-        this._router.navigate(['/special'])
+        this._router.navigate(['/special-events'])
       },
       err => console.log(err)
     )

@@ -13,8 +13,7 @@ export class LoginComponent implements OnInit {
   focus1;
   loginError: string = ''
 
-  loginUserData = {}
-
+  loginUserData: User  ;
   constructor(private _auth: AuthService,
               private _router: Router) { }
 
@@ -25,13 +24,13 @@ export class LoginComponent implements OnInit {
 // loginUser () {
   //this._auth.loginUser(this.loginUserData)
 
-  loginUser (form) {
-    let data: User = form.value
-    this._auth.loginUser(data.password)
+  loginUser (f) {
+
+    this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)
-        this._router.navigate(['/special'])
+        this._router.navigate(['/special-events'])
       },
       err => console.log(err)
     )

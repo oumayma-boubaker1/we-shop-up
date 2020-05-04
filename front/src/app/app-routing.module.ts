@@ -6,30 +6,18 @@ import { RegisterComponent } from './register/register.component'
 import { SpecialEventsComponent } from './special-events/special-events.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
+
+
+
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'event',
-    component: HomeComponent
-  },
-  {
-    path: 'special',
-    canActivate: [AuthGuard],
-    component: SpecialEventsComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  }
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'special-events', component: SpecialEventsComponent, canActivate: [AuthGuard] },// profile de client
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent }
+
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

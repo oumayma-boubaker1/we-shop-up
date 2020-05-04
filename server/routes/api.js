@@ -1,18 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
+
+
 const User = require('../models/user');
 const jwt = require('jsonwebtoken')
-const db ="mongodb+srv://WeShopUp:WeShopUp@weshopup-kc46s.mongodb.net/test?retryWrites=true&w=majority";
+const db ="mongodb+srv://WeShopUp:weshopup@weshopup-kc46s.mongodb.net/test?retryWrites=true&w=majority";
 
 
-mongoose.connect(db, function(err){
-    if(err){
-        console.error('Error! ' + err)
-    } else {
-      console.log('Connected to mongodb')      
-    }
-});
+
 
 function verifyToken(req, res, next) {
   if(!req.headers.authorization) {
@@ -69,7 +64,7 @@ router.get('/home', (req,res) => {
   res.json(home)
 })
 
-router.get('/special', verifyToken, (req, res) => {
+router.get('/special-events', verifyToken, (req, res) => {
   let specialEvents = [
     {
       "_id": "1",
@@ -142,3 +137,5 @@ router.post('/login', (req, res) => {
 })
 
 module.exports = router;
+
+////

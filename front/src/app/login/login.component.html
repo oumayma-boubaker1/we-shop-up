@@ -25,17 +25,18 @@
               <div class="text-center text-muted mb-4">
                 <small>Or sign in with credentials</small>
               </div>
-                             <form   role="form"  #f="ngForm" (ngSubmit)="loginUser(f)">
+              <form #f="ngForm" (ngSubmit)="loginUser(f)">
+
                             <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
                               <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <!--   <input type="text" class="form-control rounded-0" [(ngModel)]="loginUserData.email" name="email" required> -->
-
-                                <input ngModel ="registerUserData.email" name="email" #email="ngModel" type="email" class="form-control" placeholder="Email" required email  (focus)="focus=true" (blur)="focus=false">
-                                <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
-                                <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Your input doesn't match email format</div>
+                                <!--   svp pourquoi si je fait tow way baiding ne marche pas  [(ngModel)]="loginUserData.email" name="email" required> -->
+                                <input ngModel #log="ngModel" required email type="text" class="form-control" id="login" name="login"   (focus)="focus=true" (blur)="focus=false">
+                                <br><br>
+                                <div class="alert alert-danger" *ngIf="log.invalid && log.dirty">Login must be an email</div>
 
 
 
@@ -50,10 +51,12 @@
 
                                 <input ngModel name="password" #password="ngModel" type="password" class="form-control" placeholder="Password"
                                 required minlength="6" (focus)="focus1=true" (blur)="focus1=false">
-                              <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">Password is required</div>
-                              <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">Password should be 6+
-                                charachters</div>
+                                <br> <br>
+                                <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+                                  <p *ngIf="password.errors.required">Password is required</p>
+                                  <p *ngIf="password.errors.minlength">must be at least 8 characters</p>
 
+                              </div>
 
                               </div>
                             </div>

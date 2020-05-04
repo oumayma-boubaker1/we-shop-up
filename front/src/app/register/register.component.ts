@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router'
-
+import { User } from 'src/app/user';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,8 +12,7 @@ export class RegisterComponent implements OnInit {
   focus1;
   focus2;
   errorMessage: string = ''
-
-  registerUserData = {}
+  registerUserData : User
   constructor(private _auth: AuthService,
               private _router: Router) { }
 
@@ -21,11 +20,12 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(form) {
+
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)
-        this._router.navigate(['/special'])
+        this._router.navigate(['/login'])
       },
       err => console.log(err)
     )

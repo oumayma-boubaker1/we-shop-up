@@ -15,13 +15,19 @@ import { AuthGuard } from './auth.guard';
 import { HomeService } from './home.service';
 import { AuthService } from './auth.service';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SlideComponent } from './home/slide/slide.component';
+import { ProductListComponent } from './home/product-list/product-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
     SpecialEventsComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent,
+    SlideComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

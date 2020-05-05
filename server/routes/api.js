@@ -4,7 +4,6 @@ const router = express.Router();
 
 const User = require('../models/user');
 const jwt = require('jsonwebtoken')
-const db ="mongodb+srv://WeShopUp:weshopup@weshopup-kc46s.mongodb.net/test?retryWrites=true&w=majority";
 
 
 

@@ -1,3 +1,5 @@
+const db_url ="mongodb+srv://WeShopUp:WeShopUp@weshopup-kc46s.mongodb.net/test?retryWrites=true&w=majority";
+require('./db/connection')(db_url);
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')

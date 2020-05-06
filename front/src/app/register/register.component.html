@@ -33,7 +33,7 @@
                       <div class="text-center text-muted mb-4">
                         <small>Or sign up with credentials</small>
                       </div>
-                      <form role="form" #f="ngForm" (ngSubmit)="registerUser(f)">
+                      <form role="form" >
                         <div class="form-group" [ngClass]="{'focused':focus===true}">
                           <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
@@ -91,7 +91,7 @@
                           </div>
                         </div>
                         <div class="text-center">
-                          <button type="button" class="btn btn-primary mt-4">Create account</button>
+                          <button type="button" class="btn btn-primary mt-4" (click)="registerUser()">Create account</button>
                         </div>
                       </form>
                     </div>

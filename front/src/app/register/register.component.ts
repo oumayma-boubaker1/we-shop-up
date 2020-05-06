@@ -12,18 +12,19 @@ export class RegisterComponent implements OnInit {
   focus1;
   focus2;
   errorMessage: string = ''
-  registerUserData : User
+  registerUserData : User={}
   constructor(private _auth: AuthService,
               private _router: Router) { }
 
   ngOnInit() {
   }
 
-  registerUser(form) {
-
+  registerUser() {
+    console.log ('form')
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
+        console.log ('res',res)
         localStorage.setItem('token', res.token)
         this._router.navigate(['/login'])
       },

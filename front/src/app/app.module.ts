@@ -20,6 +20,8 @@ import { SlideComponent } from './home/slide/slide.component';
 import { ProductListComponent } from './home/product-list/product-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductComponent } from './home/product-list/product/product.component';
+import { ProductDetailsComponent } from './home/product-list/product-details/product-details.component';
+import { ShoppingCartComponent } from './home/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ProductComponent } from './home/product-list/product/product.component'
     SlideComponent,
     ProductListComponent,
     FooterComponent,
-    ProductComponent
+    ProductComponent,
+    ProductDetailsComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

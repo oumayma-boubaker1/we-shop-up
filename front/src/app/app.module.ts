@@ -18,6 +18,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SlideComponent } from './home/slide/slide.component';
 import { ProductListComponent } from './home/product-list/product-list.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { ProductListComponent } from './home/product-list/product-list.component
     HomeComponent,
     NavBarComponent,
     SlideComponent,
-    ProductListComponent
+    ProductListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

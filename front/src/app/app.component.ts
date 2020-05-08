@@ -7,5 +7,9 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'front';
-  constructor(public _authService : AuthService){}
+  constructor(public _authService : AuthService){
+    const serverURL = 'https://turing-backend-v2.herokuapp.com/api/';
+    // const serverURL = 'https://turing-backend-v2.herokuapp.com/api/';
+    localStorage.setItem('ServerUrl', serverURL);
+  }
 }

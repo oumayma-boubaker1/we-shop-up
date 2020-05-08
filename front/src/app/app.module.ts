@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
@@ -11,10 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SpecialEventsComponent } from './special-events/special-events.component';
 //
-import { AuthGuard } from './auth.guard';
-import { HomeService } from './home.service';
+import { AuthGuard } from '../services/auth.guard/auth.guard';
+import { HomeService } from '../services/home/home.service';
 import { AuthService } from './auth.service';
-import { TokenInterceptorService } from './token-interceptor.service';
+import { TokenInterceptorService } from '../services/token-interceptor/token-interceptor.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SlideComponent } from './home/slide/slide.component';
 import { ProductListComponent } from './home/product-list/product-list.component';

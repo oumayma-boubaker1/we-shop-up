@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home/home.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-special-events',
@@ -22,13 +22,13 @@ export class SpecialEventsComponent implements OnInit {
       .subscribe(
         res => this.specialEvents = res,
         err => {
-          if( err instanceof HttpErrorResponse ) {
+          if ( err instanceof HttpErrorResponse ) {
             if (err.status === 401) {
-              this._router.navigate(['/register'])
+              this._router.navigate(['/register']);
             }
           }
         }
-      )
+      );
   }
 
 }

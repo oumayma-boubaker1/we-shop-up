@@ -17,6 +17,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent }
 ];
 
+ // otherwise redirect to home
+{ path: '**', redirectTo: 'special-events'}
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -24,7 +24,9 @@ export class SpecialEventsComponent implements OnInit {
         err => {
           if ( err instanceof HttpErrorResponse ) {
             if (err.status === 401) {
+
               this._router.navigate(['/register']);
+
             }
           }
         }

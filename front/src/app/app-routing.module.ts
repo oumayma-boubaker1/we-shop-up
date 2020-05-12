@@ -14,11 +14,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'product', component: ProductDetailsComponent},
   { path: 'special-events', component: SpecialEventsComponent, canActivate: [AuthGuard] }, // profile de client
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+ // otherwise redirect to home
+  { path: '**', redirectTo: 'special-events'}
+
 ];
 
- // otherwise redirect to home
-{ path: '**', redirectTo: 'special-events'}
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

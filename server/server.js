@@ -7,6 +7,7 @@ const path = require('path');
 
 const api = require('./routes/api');
 const port = 3000;
+const product_router = require('./routers/products');
 
 const app = express();
 app.use(cors())
@@ -15,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json()); 
 
 app.use('/api', api);
-
+app.use('/api/products',product_router);
 
 
 app.listen(port, function(){

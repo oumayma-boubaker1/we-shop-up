@@ -24,7 +24,9 @@
             <div class="text-center text-muted mb-4">
               <small>Or sign in with credentials</small>
             </div>
-            <form #f="ngForm" >
+            <form role="form" >
+              <!-- <form #f="ngForm" >
+              -->
 
                           <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
                             <div class="input-group input-group-alternative">
@@ -68,7 +70,7 @@
                           <div class="text-center">
 
 
-                            <button type="button" class="btn btn-primary my-4" (click)= "loginUser(f)" >login</button>
+                            <button type="button" class="btn btn-primary mt-4" (click)="loginUser()">login</button>
                           </div>
                         </form>
                         <br>

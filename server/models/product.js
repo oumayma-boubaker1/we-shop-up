@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
-// Joi.objectid = require('joi-objectid')(Joi);
+Joi.objectid = require('joi-objectid')(Joi);
 
 
 
@@ -35,19 +35,28 @@ const product_validation_schema= {
     // category : {
     //     category_id : Joi.objectid().required()
     // }
-    // department : {
-    //     department_id : Joi.objectid().required()
-    // }
+   
     // Attribute : {
     //     Color: Attribute[],
     //     Size: Attribute[],
     // }
 }
 
+const objectid_valid_schema = {
+    id: Joi.objectid().required()
+}
+
+function objectid_not_valid(id){
+    var results = Joi.validate(id, objectid_valid_schema);
+    return results.error;
+}
+
+
 
 const Student = mongoose.model('Product',product_schema);
 
 module.exports.Product = this.Product;
+module.exports.objectid_not_valid = objectid_not_valid;
 
 
     

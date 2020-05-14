@@ -1,0 +1,6 @@
+{
+    "db" : {
+        "prot" :"mongodb+srv://",
+        "path" : "WeShopUp:WeShopUp@weshopup-kc46s.mongodb.net/test?retryWrites=true&w=majority" 
+    }
+}

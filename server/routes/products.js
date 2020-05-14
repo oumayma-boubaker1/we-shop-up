@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const { Product } = require('../models/product');
+const { Product, objectid_not_valid } = require('../models/product');
 const _ = require('lodash');
 const { Category } = require('../models/category');
-// const auth = require('../middlewares/auth')
+const auth = require('../middlewares/auth')
 // const autoris = require('../middlewares/autoris')
 // const validateObjectId = require('../middlewares/validateObjectId')
 
 router.get('',async (req,res)=>{
-    const products = await Student.find();
+    const products = await Product.find();
     if(products.length ===0 )
         return res.status(204).end();
     res.send(products);
@@ -33,5 +33,31 @@ router.post('',auth,async (req,res)=>{
     //  }
      
  });
+
+
+ //get by id
+
+router.get('/id/:id',async (req,res)=>{
+    const product = await Product.findById(req.params.id);
+    if(! product)
+        return res.status(204).end();
+    res.send(product);
+});
+
+
+//delete by id
+
+router.delete('/id/:id',[auth,autoris],async (req,res)=>{
+    let errors;
+    if(errors=objectid_not_valid(req.params))
+        return res.status(400).send(errors.details[0].message)
+    const product = await Student.findByIdAndRemove(req.params.id);
+    if(!product)
+        return res.status(200).send('Product with this id is not found');
+    res.send(product);
+});
+
+
+
 
 module.exports = router;

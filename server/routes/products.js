@@ -13,37 +13,39 @@ router.get('',async (req,res)=>{
     res.send(products);
 });
 
-router.post('',async (req,res)=>{
-     //validation par joi
-     let errors;
-     if(errors=product_not_valide(req.body))
-         return res.status(400).send(errors.details[0].message)
-     const product = new Product(_.pick(req.body,['name','price']));
+// router.post('',async (req,res)=>{
+//      //validation par joi
+//      let errors;
+//      if(errors=product_not_valide(req.body))
+//          return res.status(400).send(errors.details[0].message)
+//      const product = new Product(_.pick(req.body,['name','price']));
     
-     let category = await Category.findById(product.class_room.class_room_id);
-     if(!category)
-         return res.status(400).send('Category not found with the given id');
-         product.category.name = category.name;
-     try{
-         const saved_product = await product.save();
-         category.nb_product += 1;
-         await category.save();
-         return res.status(201).send(saved_product);
-     }catch(err){
-         return res.status(400).send(`DB error : ${err.message}`)
-     }    
- });
+//      let category = await Category.findById(product.class_room.class_room_id);
+//      if(!category)
+//          return res.status(400).send('Category not found with the given id');
+//          product.category.name = category.name;
+//      try{
+//          const saved_product = await product.save();
+//          category.nb_product += 1;
+//          await category.save();
+//          return res.status(201).send(saved_product);
+//      }catch(err){
+//          return res.status(400).send(`DB error : ${err.message}`)
+//      }    
+//  });
 
 //post article
 router.post('', async (req, res) => {
+    //console.log("post request!" +JSON.stringify(req.body));
+    
     const product =  await Product(req.body);
         res.send({message:'product add ok'});
         product.save();
+
             (error) => {
         res.sendStatus(500)
         console.error(`DB error : ${error.message}`)
     }
-
 });
 
 
@@ -70,7 +72,11 @@ router.delete('/id/:id',async (req,res)=>{
     res.send(product);
 });
 
+//Put by id (update)
 
+router.put('/id/:id',auth,async (req,res)=>{
+
+});
 
 
 module.exports = router ;

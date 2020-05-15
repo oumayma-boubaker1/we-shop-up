@@ -7,11 +7,11 @@ Joi.objectId = require('joi-objectid')(Joi);
 const product_schema = new mongoose.Schema({
     name: {type: String, required:true},
     Description: String,
-    PrimaryImage: {type: String},
+    PrimaryImage: String,
     SecondaryImage: String,
     Thumbnail: String,
     Display: Number,
-    Price: {type: Number, required:true},
+    Price: Number,
     DescountedPrice: Number,
     ProductCount: Number,
     // Attribute : {

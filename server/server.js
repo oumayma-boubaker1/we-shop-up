@@ -32,7 +32,7 @@ app.use(express.json());
 // app.use(morgan('dev'));
 
 process.on('uncaughtException', (err) =>{
-    console.log('Something failed in the Server.'+err.message);
+    console.log('Something failed in the Server error.'+err.message);
 });
 
 process.on('unhandledRejection', (ex) =>{

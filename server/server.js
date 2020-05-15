@@ -1,13 +1,13 @@
 require('express-async-errors');
 const error = require('./middlewares/error');
 // const config = require('config');
-const winston = require('winston');
-winston.add(winston.transports.File,{filename:'loggers/logfile.log'});
+// const winston = require('winston');
+// winston.add(winston.transports.File,{filename:'loggers/logfile.log'});
 
-if(!process.env.secret_jwt || !process.env.secret_mongo){
-    console.log('Variables are not set');
-    process.exit(0);
-}
+// if(!process.env.secret_jwt || !process.env.secret_mongo){
+//     console.log('Variables are not set');
+//     process.exit(0);
+// }
 
 const db_url ="mongodb+srv://WeShopUp:WeShopUp@weshopup-kc46s.mongodb.net/test?retryWrites=true&w=majority";
 require('./db/connection')(db_url);
@@ -21,7 +21,7 @@ const cors = require('cors')
 const path = require('path');
 
 const api = require('./routes/api');
-const product_router = require('./routers/products');
+const product_router = require('./routes/products');
 
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -40,11 +40,11 @@ process.on('unhandledRejection', (ex) =>{
 });
 
 
-// throw new Error('Something');
+throw new Error('Something');
 
 app.use('/api', api);
-app.use('/api/products',product_router);
-app.use('/api/users',user_router);
+app.use('/products',product_router);
+app.use('/users',user_router);
 app.use(error);
 
 

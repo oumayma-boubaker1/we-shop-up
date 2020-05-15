@@ -55,7 +55,7 @@ function objectid_not_valid(id){
 
 const Student = mongoose.model('Product',product_schema);
 
-module.exports.Product = this.Product;
+module.exports.Product = Product;
 module.exports.objectid_not_valid = objectid_not_valid;
 
 

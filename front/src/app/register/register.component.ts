@@ -11,8 +11,8 @@ export class RegisterComponent implements OnInit {
   focus;
   focus1;
   focus2;
-  errorMessage: string = ''
-  registerUserData : User={}
+  errorMessage: string = '';
+  registerUserData: User = { };
   constructor(private _auth: AuthService,
               private _router: Router) { }
 
@@ -20,16 +20,16 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    console.log ('form')
+    console.log ('form');
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
-        console.log ('res',res)
-        localStorage.setItem('token', res.token)
-        this._router.navigate(['/special-events'])
+        console.log ('res', res);
+        localStorage.setItem('token', res.token);
+        this._router.navigate(['/special-events']);
       },
       err => console.log(err)
-    )
+    );
   }
 
 

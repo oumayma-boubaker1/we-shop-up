@@ -13,7 +13,8 @@ const product_schema = new mongoose.Schema({
     Display: Number,
     Price: Number,
     DescountedPrice: Number,
-    ProductCount: Number,
+    ProductCount: Number
+
     // Attribute : {
     //     Color: Attribute[],
     //     Size: Attribute[],

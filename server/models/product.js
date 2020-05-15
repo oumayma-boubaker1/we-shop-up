@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
-Joi.objectid = require('joi-objectid')(Joi);
+Joi.objectId = require('joi-objectid')(Joi);
 
 
 
 const product_schema = new mongoose.Schema({
     name: {type: String, required:true},
     Description: String,
-    PrimaryImage: {type: String, required:true},
+    PrimaryImage: {type: String},
     SecondaryImage: String,
     Thumbnail: String,
     Display: Number,
@@ -30,7 +30,7 @@ const product_validation_schema= {
     Thumbnail: Joi.string(),
     Display: Joi.number().positive(),
     price : Joi.number().positive(),
-    DescountedPrice: Joi.number().negatif(),
+    DescountedPrice: Joi.number().negative(),
     ProductCount: Joi.number().positive(),
     // category : {
     //     category_id : Joi.objectid().required()
@@ -43,7 +43,7 @@ const product_validation_schema= {
 }
 
 const objectid_valid_schema = {
-    id: Joi.objectid().required()
+    id: Joi.objectId().required()
 }
 
 function objectid_not_valid(id){
@@ -53,7 +53,7 @@ function objectid_not_valid(id){
 
 
 
-const Student = mongoose.model('Product',product_schema);
+const Product = mongoose.model('Product',product_schema);
 
 module.exports.Product = Product;
 module.exports.objectid_not_valid = objectid_not_valid;

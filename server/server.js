@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json()); 
 
 app.use(express.json());
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 process.on('uncaughtException', (err) =>{
     console.log('Something failed in the Server.'+err.message);
@@ -40,11 +40,11 @@ process.on('unhandledRejection', (ex) =>{
 });
 
 
-throw new Error('Something');
+// throw new Error('Something');
 
 app.use('/api', api);
 app.use('/products',product_router);
-app.use('/users',user_router);
+
 app.use(error);
 
 

@@ -14,12 +14,13 @@ require('./db/connection')(db_url);
 const express = require('express');
 const app_debug = require('debug')('app:debug');
 const app = express();
+// body-parser (it's Express middleware modules): Parse HTTP request body. See also: body, co-body, and raw-body.
 const bodyParser = require('body-parser');
-
+// morgan (it's Express middleware modules): HTTP request logger.
+const morgan = require('morgan');
 const port = 3000;
 const cors = require('cors')
 const path = require('path');
-
 const api = require('./routes/api');
 const product_router = require('./routes/products');
 
@@ -29,14 +30,14 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json()); 
 
 app.use(express.json());
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 process.on('uncaughtException', (err) =>{
-    console.log('Something failed in the Server error.'+err.message);
+    console.log('Something failed in the Server "error" : '+err.message);
 });
 
 process.on('unhandledRejection', (ex) =>{
-    console.log('Something rejected in the Server.'+ex.message);
+    console.log('Something rejected in the Server. '+ex.message);
 });
 
 

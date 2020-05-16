@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, objectid_not_valid } = require('../models/product');
+const { Product, product_not_valide, objectid_not_valid } = require('../models/product');
 const _ = require('lodash');
 // const { Category } = require('../models/category');
 const auth = require('../middlewares/auth')
@@ -7,6 +7,7 @@ const auth = require('../middlewares/auth')
 // const validateObjectId = require('../middlewares/validateObjectId')
 
 router.get('',async (req,res)=>{
+    // find is a async method that's why we use async await
     const products = await Product.find();
     if(products.length ===0 )
         return res.status(204).end();
@@ -37,7 +38,10 @@ router.get('',async (req,res)=>{
 //post article
 router.post('', async (req, res) => {
     //console.log("post request!" +JSON.stringify(req.body));
-    
+    let errors;
+    if(errors = product_not_valide(req.body))
+        return res.status(400).send(errors.details[0].message)
+        
     const product =  await Product(req.body);
         res.send({message:'product add ok'});
         product.save();
@@ -50,8 +54,12 @@ router.post('', async (req, res) => {
 
 
  //get by id
+ // localhost:3000/products/id/....
 
 router.get('/id/:id',async (req,res)=>{
+    let errors;
+    if(errors=objectid_not_valid(req.params))
+        return res.status(400).send(errors.details[0].message)
     const product = await Product.findById(req.params.id);
     if(! product)
         return res.status(204).end();
@@ -64,9 +72,9 @@ router.get('/id/:id',async (req,res)=>{
 
 router.delete('/id/:id',async (req,res)=>{
     let errors;
-    if(errors=objectid_not_valid(req.params))
+    if(errors=objectid_not_valid(req.params)) //id se trouve dans request params
         return res.status(400).send(errors.details[0].message)
-    const product = await Student.findByIdAndRemove(req.params.id);
+    const product = await Product.findByIdAndRemove(req.params.id);
     if(!product)
         return res.status(200).send('Product with this id is not found');
     res.send(product);
@@ -74,9 +82,32 @@ router.delete('/id/:id',async (req,res)=>{
 
 //Put by id (update)
 
-router.put('/id/:id',auth,async (req,res)=>{
-
+router.put('/id/:id', async (req,res)=>{
+    let errors;
+    if(errors=objectid_not_valid(req.params))
+        return res.status(400).send(errors.details[0].message)
+    if(errors= product_not_valide(req.params))
+        return res.status(400).send(errors.details[0].message)
+    let product = await Product.findById(req.params.id);
+    if(! product)
+        return res.status(200).send('Product with this id is not found');
+    product = _.merge(product,req.body); // rectify if the new data is not like the ancient then it updates
+    try{
+        const saved_product = await product.save();
+        return res.status(201).send(saved_product);
+    }catch(err){
+        return res.status(400).send(`DB error : ${err.message}`)
+    }
 });
 
+
+// ptoducts name and id of products with name contains a given string %like%
+router.get('/name/like/:part_name', async (req,res)=>{
+    if(errors= product_not_valide(req.params))
+        return res.status(400).send(errors.details[0].message)
+    const products = await Product.find({name : { $regex : req.params.part_name, $options:"i"}})
+                                    .select('name');
+    res.send(products);
+})
 
 module.exports = router ;

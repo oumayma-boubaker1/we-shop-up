@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category, category_not_valide } = require('../models/class_room');
+const { Category, category_not_valide } = require('../models/category');
 const _ = require('lodash');
 
 router.get('',async (req,res)=>{

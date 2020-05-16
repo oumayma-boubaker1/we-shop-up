@@ -100,6 +100,15 @@ router.put('/id/:id', async (req,res)=>{
     }
 });
 
+// count products with price between an intervall
+router.get('/count/Price/min/:min_price/max/:max_price', async (req,res)=>{
+    if(errors=product_not_valide(req.params)) 
+        return res.status(400).send(errors.details[0].message)
+    if(req.params.min_price > req.params.max_price)
+    return res.status(400).send('min_price must be less or equals max_price')
+    const products = await Product.find({Price : { $gte :req.params.min_price, $lte: req.params.max_price}});
+    res.send(`${products.length} is the number of products with the price between [${req.params.min_price},${req.params.max_price}]`);
+}) 
 
 // ptoducts name and id of products with name contains a given string %like%
 router.get('/name/like/:part_name', async (req,res)=>{

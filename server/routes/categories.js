@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category, category_not_valide, objectid_not_valid} = require('../models/category');
+const { Category, category_not_valide, objectid_not_valid, category_opt_not_valide} = require('../models/category');
 const _ = require('lodash');
 
 router.get('',async (req,res)=>{
@@ -37,17 +37,17 @@ router.post('',async (req,res)=>{
         res.send(category);
     });
     
-    
+
 // * Put by id (update)
     // ! there is somthing wrong with this code it keeps saying 
     // ?    i tried  --->   localhost:3000/categories/id/5ec07a98d5708d8a5c76b653
-    // ! "name" is required
+    // ! "id" is not allowed
     
     router.put('/id/:id', async (req,res)=>{
         let errors;
         if(errors= objectid_not_valid(req.params))
             return res.status(400).send(errors.details[0].message)
-        if(errors= category_not_valide(req.params))
+        if(errors= category_opt_not_valide(req.params))
             return res.status(400).send(errors.details[0].message)
         let category = await Category.findById(req.params.id);
         if(! category)

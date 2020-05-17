@@ -22,13 +22,14 @@ const product_schema = new mongoose.Schema({
     // }
 
 });
-// *
-// ! *************************************************
+
+
+//   ************************************************ 
 
 
 const product_validation_schema= {
    
-    name: Joi.string().min(4),
+    name: Joi.string().min(4).required(),
     Description: Joi.string(),
     PrimaryImage: Joi.string(),
     SecondaryImage: Joi.string(),
@@ -47,12 +48,27 @@ const product_validation_schema= {
     // }
 }
 
-// function product_not_valide(product) {
-    
-//     var results = Joi.validate(product, product_validation_schema);
-//     return results.error;
-// }
+const product_opt_validation_schema= {
+   
+    name: Joi.string().min(8),
+    part_name: Joi.string(),
+    Description: Joi.string(),
+    PrimaryImage: Joi.string(),
+    SecondaryImage: Joi.string(),
+    Thumbnail: Joi.string(),
+    Display: Joi.number().positive(),
+    Price : Joi.number().positive(),
+    min_price: Joi.number().positive(),
+    max_price: Joi.number().positive(),
+    DescountedPrice: Joi.number(),
+    ProductCount: Joi.number().positive()
+}
 
+function product_opt_not_valide(prod) {
+    
+    var results = Joi.validate(prod, product_opt_validation_schema);
+    return results.error;
+}
 // *****************************************************  //
 const objectid_valid_schema = {
     id: Joi.objectId().required()
@@ -68,6 +84,7 @@ function product_not_valide(product) {
     return results.error;
 }
 
+// ************************************************ //
 
 // create collection product_schema basé sur 'Product' (schema )
 const Product = mongoose.model('Product',product_schema);
@@ -75,7 +92,7 @@ const Product = mongoose.model('Product',product_schema);
 module.exports.Product = Product;
 module.exports.product_not_valide = product_not_valide;
 module.exports.objectid_not_valid = objectid_not_valid;
-
+module.exports.product_opt_not_valide = product_opt_not_valide;
 
     
     

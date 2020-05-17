@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, product_not_valide, objectid_not_valid } = require('../models/product');
+const { Product, product_not_valide, objectid_not_valid, product_opt_not_valide } = require('../models/product');
 const _ = require('lodash');
 // const { Category } = require('../models/category');
 const auth = require('../middlewares/auth')
@@ -86,7 +86,7 @@ router.put('/id/:id', async (req,res)=>{
     let errors;
     if(errors=objectid_not_valid(req.params))
         return res.status(400).send(errors.details[0].message)
-    if(errors= product_not_valide(req.params))
+    if(errors= product_opt_not_valide(req.params))
         return res.status(400).send(errors.details[0].message)
     let product = await Product.findById(req.params.id);
     if(! product)
@@ -101,8 +101,9 @@ router.put('/id/:id', async (req,res)=>{
 });
 
 // count products with price between an intervall
+
 router.get('/count/Price/min/:min_price/max/:max_price', async (req,res)=>{
-    if(errors=product_not_valide(req.params)) 
+    if(errors=product_opt_not_valide(req.params)) 
         return res.status(400).send(errors.details[0].message)
     if(req.params.min_price > req.params.max_price)
     return res.status(400).send('min_price must be less or equals max_price')
@@ -112,7 +113,7 @@ router.get('/count/Price/min/:min_price/max/:max_price', async (req,res)=>{
 
 // ptoducts name and id of products with name contains a given string %like%
 router.get('/name/like/:part_name', async (req,res)=>{
-    if(errors= product_not_valide(req.params))
+    if(errors= product_opt_not_valide(req.params))
         return res.status(400).send(errors.details[0].message)
     const products = await Product.find({name : { $regex : req.params.part_name, $options:"i"}})
                                     .select('name');

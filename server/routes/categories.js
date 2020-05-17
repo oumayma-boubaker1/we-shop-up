@@ -13,7 +13,7 @@ router.post('',async (req,res)=>{
     let errors;
     if(errors=category_not_valide(req.body))
         return res.status(400).send(errors.details[0].message)
-    let category = new Category(_.pick(req.body,['name','description']));
+    let category = new Category(_.pick(req.body,['category_name','description']));
     try{
         category = await category.save();
         return res.status(201).send(category);
@@ -47,8 +47,8 @@ router.post('',async (req,res)=>{
         let errors;
         if(errors= objectid_not_valid(req.params))
             return res.status(400).send(errors.details[0].message)
-        if(errors= category_opt_not_valide(req.params))
-            return res.status(400).send(errors.details[0].message)
+        // if(errors= category_opt_not_valide(req.params))
+        //     return res.status(400).send(errors.details[0].message)
         let category = await Category.findById(req.params.id);
         if(! category)
             return res.status(200).send('category with this id is not found');

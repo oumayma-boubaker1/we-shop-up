@@ -4,7 +4,6 @@ const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
 
 
-
 const product_schema = new mongoose.Schema({
     name: {type: String, required:true},
     Description: String,
@@ -14,8 +13,18 @@ const product_schema = new mongoose.Schema({
     Display: Number,
     Price: Number,
     DescountedPrice: Number,
-    ProductCount: Number
-
+    ProductCount: Number,
+    Category : {
+        category_id : {
+            type: mongoose.Schema.ObjectId, 
+            ref :'Category'
+        },
+        category_name: {
+            type: String, 
+            required : true,
+            enum : ['French','Italian','Irish','Animal', 'Flower', 'Valentine\'s']
+        }
+    }
     // Attribute : {
     //     Color: Attribute[],
     //     Size: Attribute[],
@@ -38,9 +47,10 @@ const product_validation_schema= {
     Price : Joi.number().positive(),
     DescountedPrice: Joi.number(),
     ProductCount: Joi.number().positive(),
-    // category : {
-    //     category_id : Joi.objectid().required()
-    // }
+   
+    category : {
+        category_id : Joi.objectid().required()
+    }
    
     // Attribute : {
     //     Color: Attribute[],
@@ -61,7 +71,10 @@ const product_opt_validation_schema= {
     min_price: Joi.number().positive(),
     max_price: Joi.number().positive(),
     DescountedPrice: Joi.number(),
-    ProductCount: Joi.number().positive()
+    ProductCount: Joi.number().positive(),
+    category : {
+        category_id : Joi.objectid().required()
+    }
 }
 
 function product_opt_not_valide(prod) {

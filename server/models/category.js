@@ -4,19 +4,19 @@ Joi.objectid = require('joi-objectid')(Joi);
 
 // ! add " unique: true "
 const category_schema = new mongoose.Schema({
-    name : {type: String, required : true, enum : ['French','Italian','Irish','Animal', 'Flower', 'Valentine\'s']},
-    description : String
+    category_name : {type: String, required : true, enum : ['French','Italian','Irish','Animal', 'Flower', 'Valentine\'s']},
+    description : String,
     
 });
 
 const category_validation_schema= {
-    name: Joi.string().required(),
+    category_name: Joi.string().required(),
     description: Joi.string(),
     
 }
 
 const category_opt_validation_schema= {
-    name: Joi.string(),
+    category_name: Joi.string(),
     description: Joi.string(),
 }
 // ********************************************************************** //

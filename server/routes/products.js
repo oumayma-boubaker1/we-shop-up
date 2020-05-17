@@ -14,45 +14,48 @@ router.get('',async (req,res)=>{
     res.send(products);
 });
 
-// router.post('',async (req,res)=>{
-//      //validation par joi
-//      let errors;
-//      if(errors=product_not_valide(req.body))
-//          return res.status(400).send(errors.details[0].message)
-//      const product = new Product(_.pick(req.body,['name','price']));
+// ! add  => [auth,autoris],
+
+router.post('',async (req,res)=>{  
+     //validation par joi
+     let errors;
+     if(errors = product_not_valide(req.body))
+         return res.status(400).send(errors.details[0].message)
+     const product = new Product(_.pick(req.body,['name','Price']));
     
-//      let category = await Category.findById(product.class_room.class_room_id);
-//      if(!category)
-//          return res.status(400).send('Category not found with the given id');
-//          product.category.name = category.name;
-//      try{
-//          const saved_product = await product.save();
-//          category.nb_product += 1;
-//          await category.save();
-//          return res.status(201).send(saved_product);
-//      }catch(err){
-//          return res.status(400).send(`DB error : ${err.message}`)
-//      }    
-//  });
+     let category = await Category.findById(product.category.category_id);
+     if(!category)
+         return res.status(400).send('Category not found with the given id');
+         product.category.category_name = category.category_name;
+     try{
+         const saved_product = await product.save();
+         category.nb_product += 1;
+         await category.save();
+         return res.status(201).send(saved_product);
+     }catch(err){
+         return res.status(400).send(`DB error : ${err.message}`)
+     }    
+ });
 
-//post product
-router.post('', async (req, res) => {
-    //console.log("post request!" +JSON.stringify(req.body));
-    let errors;
-    if(errors = product_not_valide(req.body))
-        return res.status(400).send(errors.details[0].message)
+// ********************************************************************************* //
+// //post product
+// router.post('', async (req, res) => {
+//     //console.log("post request!" +JSON.stringify(req.body));
+//     let errors;
+//     if(errors = product_not_valide(req.body))
+//         return res.status(400).send(errors.details[0].message)
         
-    const product =  await Product(req.body);
-        res.send({message:'product add ok'});
-        product.save();
+//     const product =  await Product(req.body);
+//         res.send({message:'product add ok'});
+//         product.save();
 
-            (error) => {
-        res.sendStatus(500)
-        console.error(`DB error : ${error.message}`)
-    }
-});
+//             (error) => {
+//         res.sendStatus(500)
+//         console.error(`DB error : ${error.message}`)
+//     }
+// });
 
-
+// ************************************************************************* //
  //get by id
  // localhost:3000/products/id/....
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // joi needs schema and a function to validate
 const Joi = require('joi');
-Joi.objectId = require('joi-objectid')(Joi);
+Joi.objectid = require('joi-objectid')(Joi);
 
 
 const product_schema = new mongoose.Schema({
@@ -84,7 +84,7 @@ function product_opt_not_valide(prod) {
 }
 // *****************************************************  //
 const objectid_valid_schema = {
-    id: Joi.objectId().required()
+    id: Joi.objectid().required()
 }
 
 function objectid_not_valid(id){

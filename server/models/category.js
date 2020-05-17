@@ -21,7 +21,7 @@ const category_opt_validation_schema= {
 }
 // ********************************************************************** //
 const objectid_valid_schema = {
-    id: Joi.objectId().required()
+    id: Joi.objectid().required()
 }
 
 function objectid_not_valid(id){

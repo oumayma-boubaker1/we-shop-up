@@ -25,7 +25,7 @@ router.post('',async (req,res)=>{
 
 
 // * delete by id
-// ! add  middelwares  [auth,autoris]
+// ? add  middelwares  [auth,autoris]
 
     router.delete('/id/:id',async (req,res)=>{
         let errors;
@@ -41,7 +41,7 @@ router.post('',async (req,res)=>{
 // * Put by id (update)
     // ! there is somthing wrong with this code it keeps saying 
     // ?    i tried  --->   localhost:3000/categories/id/5ec07a98d5708d8a5c76b653
-    // ! "id" is not allowed
+    // ?  "id" is not allowed
     
     router.put('/id/:id', async (req,res)=>{
         let errors;

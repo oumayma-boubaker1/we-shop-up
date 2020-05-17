@@ -35,7 +35,7 @@ router.get('',async (req,res)=>{
 //      }    
 //  });
 
-//post article
+//post product
 router.post('', async (req, res) => {
     //console.log("post request!" +JSON.stringify(req.body));
     let errors;

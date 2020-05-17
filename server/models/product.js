@@ -62,6 +62,7 @@ function objectid_not_valid(id){
     var results = Joi.validate(id, objectid_valid_schema);
     return results.error;
 }
+// ************************************************ //
 function product_not_valide(product) {
     var results = Joi.validate(product, product_validation_schema);
     return results.error;

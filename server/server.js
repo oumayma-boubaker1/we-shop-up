@@ -23,7 +23,7 @@ const cors = require('cors')
 const path = require('path');
 const api = require('./routes/api');
 const product_router = require('./routes/products');
-
+const category_router = require('./routes/categories');
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'dist')));
 
@@ -45,7 +45,7 @@ process.on('unhandledRejection', (ex) =>{
 
 app.use('/api', api);
 app.use('/products',product_router);
-
+app.use('/categories',category_router);
 app.use(error);
 
 

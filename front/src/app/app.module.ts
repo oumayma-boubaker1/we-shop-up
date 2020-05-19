@@ -20,7 +20,7 @@ import { ProductItemComponent } from './product/product-item/product-item.compon
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { BodyComponent } from './body/body.component';
-import { CartTagComponent } from './cart-tag/cart-tag.component';
+import { CartTagComponent } from './shared/cart-tag/cart-tag.component';
 import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.component';
 
 @NgModule({

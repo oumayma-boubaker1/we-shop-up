@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-tag.component.css']
 })
 export class CartTagComponent implements OnInit {
-
+  showcart = false;
   constructor() { }
 
   ngOnInit(): void {

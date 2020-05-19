@@ -7,6 +7,6 @@ module.exports = function(err,req,res,next){
     //winston.verbose
     //winston.debug
     //winston.silly
-    res.status(500).send('Something failed in the Server.'+err.message);
+    res.status(500).send('Something failed in the Server.'+err);
 
 }

@@ -22,6 +22,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { BodyComponent } from './body/body.component';
 import { CartTagComponent } from './shared/cart-tag/cart-tag.component';
 import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.compo
     ShoppingCartComponent,
     BodyComponent,
     CartTagComponent,
-    CartTagListComponent
+    CartTagListComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

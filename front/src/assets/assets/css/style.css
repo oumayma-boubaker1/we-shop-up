@@ -2244,7 +2244,7 @@ h3.sidebar-widget {
 .product-color > ul li:last-child {
     margin-right: 0px;
 }
-.product-color > ul li.blue {
+.product-color > ul li {
     background: #668fbe none repeat scroll 0 0;
 }
 .product-color > ul li.yellow {
@@ -2623,7 +2623,7 @@ button.product-filter-toggle:hover,
 .product-color > ul li.pink {
     background: #ff01f0 none repeat scroll 0 0;
 }
-.product-color > ul li.blue {
+.product-color > ul li {
     background: #3649ff none repeat scroll 0 0;
 }
 .product-color > ul li.sky2 {

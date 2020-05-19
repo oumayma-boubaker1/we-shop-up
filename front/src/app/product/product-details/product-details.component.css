@@ -2,4 +2,25 @@ img {
     width: 300;
     height: 600;
   }
-  
+  .product-color > ul li.white {
+    background: #ffffff none repeat scroll 0 0;
+}
+.product-color > ul li.orange {
+  background: #eb732e none repeat scroll 0 0;
+}
+
+.product-color > ul li.yellow {
+  background: #dda60f none repeat scroll 0 0;
+}
+
+.product-color > ul li.indigo {
+  background: #4B0082 none repeat scroll 0 0;
+}
+
+.product-color > ul li.purple {
+  background: #800080 none repeat scroll 0 0;
+}
+
+.product-color > ul li.dark-green {
+  background: #008000 none repeat scroll 0 0;
+}

@@ -16,10 +16,12 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SlideComponent } from './shared/slide/slide.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
+import { ProductItemComponent } from './product/product-item/product-item.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { BodyComponent } from './body/body.component';
+import { CartTagComponent } from './cart-tag/cart-tag.component';
+import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,12 @@ import { BodyComponent } from './body/body.component';
     SlideComponent,
     ProductListComponent,
     FooterComponent,
+    ProductItemComponent,
     ProductDetailsComponent,
     ShoppingCartComponent,
-    BodyComponent
+    BodyComponent,
+    CartTagComponent,
+    CartTagListComponent
   ],
   imports: [
     BrowserModule,

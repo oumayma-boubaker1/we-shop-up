@@ -48,15 +48,34 @@
         <div class="product-color">
             <h5 class="pd-sub-title">Product color</h5>
             <ul>
+                <li class="white">b</li>
+                <li class="black">g</li>
                 <li class="red">b</li>
-                <li class="pink">p</li>
+                <li class="orange">b</li>
+                <li class="yellow">b</li>
+                <li class="dark-green">y</li>
                 <li class="blue">b</li>
-                <li class="sky2">b</li>
-                <li class="green">y</li>
-                <li class="purple2">g</li>
+                <li class="indigo">y</li>
+                <li class="purple">g</li>
+                
             </ul>
         </div>
+        <div class="row">
+          <div class="col-md-6 py-1 px-1">
+                <strong> Size </strong>          
+                  <select [(ngModel)]="size"  class="browser-default custom-select">
+                      <option *ngFor="let f of listeSizes" [value]="f">{{f}}</option>
+                  </select>
+              </div>
+                  <div class="col-md-6 py-1 px-1">
+                      <strong > Colour </strong>
+                          <select [(ngModel)]="color" class="browser-default custom-select">
+                              <option *ngFor="let c of listecolors" [value]="c">{{c}}</option>
+                          </select>
+                  </div>
+        </div>
         <div class="quickview-plus-minus">
+           
             <div class="cart-plus-minus">
                 <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
             </div>
@@ -73,18 +92,7 @@
                 <li>
                     <a href="#">fashion ,</a>
                 </li>
-                <li>
-                    <a href="#">electronics ,</a>
-                </li>
-                <li>
-                    <a href="#">toys ,</a>
-                </li>
-                <li>
-                    <a href="#">food ,</a>
-                </li>
-                <li>
-                    <a href="#">jewellery </a>
-                </li>
+               
             </ul>
         </div>
         <div class="product-share">

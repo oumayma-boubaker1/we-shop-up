@@ -11,29 +11,26 @@ import { User } from 'src/app/user';
 export class LoginComponent implements OnInit {
   focus;
   focus1;
-  loginError: string = '';
+  loginError = '';
 
   loginUserData: User  ;
-  constructor(private _auth: AuthService,
-              private _router: Router) { }
+  constructor(private auth: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
-
 // loginUser () {
   // this._auth.loginUser(this.loginUserData)
 
-
-
   loginUser() {
     console.log ('form'),
-   this._auth.loginUser(this.loginUserData)
+   this.auth.loginUser(this.loginUserData)
    .subscribe(
      res => {
        console.log ('res', res );
        localStorage.setItem('token', res.token );
-       this._router.navigate(['/special-events'] );
+       this.router.navigate(['/special-events'] );
      },
      err => console.log(err)
    );

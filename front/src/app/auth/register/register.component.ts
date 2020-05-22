@@ -11,22 +11,22 @@ export class RegisterComponent implements OnInit {
   focus;
   focus1;
   focus2;
-  errorMessage: string = '';
+  errorMessage = '';
   registerUserData: User = { };
-  constructor(private _auth: AuthService,
-              private _router: Router) { }
+  constructor(private auth: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
   registerUser() {
     console.log ('form');
-    this._auth.registerUser(this.registerUserData)
+    this.auth.registerUser(this.registerUserData)
     .subscribe(
       res => {
         console.log ('res', res);
         localStorage.setItem('token', res.token);
-        this._router.navigate(['/special-events']);
+        this.router.navigate(['/special-events']);
       },
       err => console.log(err)
     );

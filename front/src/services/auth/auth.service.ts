@@ -5,26 +5,26 @@ import { Router } from '@angular/router' ;
   providedIn: 'root'
 })
 export class AuthService {
-  private _registerUrl = "http://localhost:3000/api/register";
-  private _loginUrl = "http://localhost:3000/api/login";
+  private registerUrl = 'http://localhost:3000/api/register';
+  private loginUrl = 'http://localhost:3000/api/login';
   constructor(private http: HttpClient,
-              private _router: Router) { }
+              private router: Router) { }
 
 
     registerUser(user) {
-      return this.http.post<any>(this._registerUrl, user)
+      return this.http.post<any>(this.registerUrl, user);
     }
     loginUser(user) {
-      return this.http.post<any>(this._loginUrl, user)
+      return this.http.post<any>(this.loginUrl, user);
     }
     logoutUser() {
-      localStorage.removeItem('token')
-      this._router.navigate(['/home'])
+      localStorage.removeItem('token');
+      this.router.navigate(['/home']);
     }
     getToken() {
-      return localStorage.getItem('token')
+      return localStorage.getItem('token');
     }
     loggedIn() {
-      return !!localStorage.getItem('token')
+      return !!localStorage.getItem('token');
     }
 }

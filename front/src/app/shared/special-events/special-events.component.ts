@@ -13,19 +13,19 @@ export class SpecialEventsComponent implements OnInit {
 
   specialEvents = []
 
-  constructor(private _homeService: HomeService,
-              private _router: Router) { }
+  constructor(private homeService: HomeService,
+              private router: Router) { }
 
 
   ngOnInit() {
-    this._homeService.getSpecialEvents()
+    this.homeService.getSpecialEvents()
       .subscribe(
         res => this.specialEvents = res,
         err => {
           if ( err instanceof HttpErrorResponse ) {
             if (err.status === 401) {
 
-              this._router.navigate(['/register']);
+              this.router.navigate(['/register']);
 
             }
           }

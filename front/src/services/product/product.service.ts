@@ -6,6 +6,7 @@ import { Product } from 'src/Models/product';
   providedIn: 'root'
 })
 export class ProductService {
+ // localhost:3000/products/id/
   url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 

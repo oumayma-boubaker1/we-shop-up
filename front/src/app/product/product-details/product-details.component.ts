@@ -14,8 +14,8 @@ export class ProductDetailsComponent implements OnInit {
   color: string;
   product: Product;
   productId: number;
-  sizeId: number;
-  colorId: number;
+  // sizeId: number;
+  // colorId: number;
 
 
 
@@ -27,16 +27,16 @@ export class ProductDetailsComponent implements OnInit {
     ngOnInit() {
       this.route.params.subscribe(params => {
         this.productId = params [' id '];
-      } )
+      } );
       this.getProductDetailsById();
     }
     getProductDetailsById(){
       this.productService.getProductDetailsById(this.productId)
       .subscribe(p => {
         this.product = p as Product;
-        this.colorId = p.Color[0].AttributeValueId;
-        this.sizeId = p.Size[0].AttributeValueId;
+        this.color = p.Color;
+        this.size = p.Size;
         console.log(this.product);
-      })
+      });
     }
   }

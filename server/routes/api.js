@@ -118,6 +118,7 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
   let userData = req.body
   User.findOne({email: userData.email}, (err, user) => {
+    // console.log("hello") 
     if (err) {
       console.log(err)    
     } else {
@@ -132,7 +133,7 @@ router.post('/login', (req, res) => {
         res.status(200).send({token})
       }
     }
-  })
+   })
 })
 
 module.exports = router;

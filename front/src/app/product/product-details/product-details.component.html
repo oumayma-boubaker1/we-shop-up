@@ -43,9 +43,7 @@
               <tr>
                 <th scope="row">Product Category</th>
                 <td>
-                  <a href="">
-                    <span class="badge purple mr-1">{{product.DepartmentName}}</span>
-                  </a>
+                  <!--   -->
                   <a href="">
                     <span class="badge blue mr-1">{{product.CategoryName}}</span>
                   </a>
@@ -57,8 +55,8 @@
                     Color
                   </strong>
                   <select class="browser-default custom-select" *ngIf="product" style="width: 100px"
-                    [(ngModel)]="colorId">
-                    <option [value]="item.AttributeValueId" *ngFor="let item of product.Color"> {{item.AttributeValue}}
+                    [(ngModel)]="color">
+                    <option [value]="item" *ngFor="let item of listecolors"> {{item}}
                     </option>
                   </select>
                 </td>
@@ -67,8 +65,8 @@
                     Size
                   </strong>
                   <select class="browser-default custom-select" *ngIf="product" style="width: 100px"
-                    [(ngModel)]="sizeId">
-                    <option [value]="item.AttributeValueId" *ngFor="let item of product.Size">{{item.AttributeValue}}
+                    [(ngModel)]="size">
+                    <option [value]="item" *ngFor="let item of listeSizes">{{item}}
                     </option>
                   </select>
                 </td>

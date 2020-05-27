@@ -23,6 +23,8 @@ import { BodyComponent } from './body/body.component';
 import { CartTagComponent } from './shared/cart-tag/cart-tag.component';
 import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { LogoutGuard } from 'src/services/LogoutGuard/logout.guard';
+import { AddToCartComponent } from './shared/add-to-cart/add-to-cart.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BodyComponent,
     CartTagComponent,
     CartTagListComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddToCartComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard, HomeService,
+  providers: [AuthService, AuthGuard, HomeService, LogoutGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

@@ -1,11 +1,6 @@
-import { Attribute } from "./attribute";
-
-
 export class Product {
     ProductId: number;
     CategoryId: number;
-    DepartmentId: number;
-    DepartmentName: string;
     CategoryName: string;
     Name: string;
     Description: string;
@@ -16,6 +11,6 @@ export class Product {
     Price: number;
     DescountedPrice: number;
     ProductCount: number;
-    Color: Attribute[];
-    Size: Attribute[];
+    Color: string;
+    Size: string;
 }

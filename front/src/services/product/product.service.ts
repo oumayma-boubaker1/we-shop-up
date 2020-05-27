@@ -6,7 +6,7 @@ import { Product } from 'src/Models/product';
   providedIn: 'root'
 })
 export class ProductService {
- // localhost:3000/products/id/
+ link = 'localhost:3000/products';
   url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
@@ -15,5 +15,8 @@ export class ProductService {
     return this.http.get<Product>(`${this.url}product/getProductDetails?productId=${productId}`);
   }
 
+  addProductAPI(p) {
+    return this.http.post(this.link, p);
+  }
 
 }

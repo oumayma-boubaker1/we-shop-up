@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="alert alert-info" *ngIf="erreur">Vous n'avez pas les permissions nécessaires !</div>
+    <form #addForm="ngForm" (ngSubmit)="addProduct(addForm.value)">
+      <label for="name">name</label>
+      <input ngModel required type="text" class="form-control" id="name" name="name">
+      <label for="Description">Description</label>
+      <input ngModel required type="text" class="form-control" id="Description" name="Description">
+      <label for="Thumbnail">Thumbnail</label>
+      <input ngModel required type="text" class="form-control" id="Thumbnail" name="Thumbnail">
+      <label for="Display">Display</label>
+      <input ngModel required type="number" class="form-control" id="Display" name="Display">
+      <label for="Price">Price</label>
+      <input ngModel required type="number" class="form-control" id="Price" name="Price">
+      <label for="DescountedPrice">DescountedPrice</label>
+      <input ngModel required type="number" class="form-control" id="DescountedPrice" name="DescountedPrice">
+      <label for="ProductCount">ProductCount</label>
+      <input ngModel required type="number" class="form-control" id="ProductCount" name="ProductCount">
+
+      <label for="Color">Color</label>
+        <select class="form-control" [ngModel]="defaultColor" id="Color" name="Color">
+            <option value="White">White</option>
+            <option value="Black">Black </option>
+            <option value="Red">Red</option>
+            <option value="Orange">Orange</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Green">Green</option>
+            <option value="Blue">Blue</option>
+            <option value="Indigo">Indigo</option>
+            <option value="Purple">Purple</option>
+           </select>
+            <hr>
+            <label for="Size">Size</label>
+            <select class="form-control" [ngModel]="defaultSize" id="Size" name="Size">
+                <option value="S">S</option>
+                <option value="M">M </option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+           </select>
+                <hr>
+                <label for="category">category</label>
+            <select class="form-control" [ngModel]="defaultcategory" id="category" name="category">
+                <option value="French">French</option>
+                <option value="Italian">Italian</option>
+                <option value="Irish">Irish</option>
+                <option value="Animal">Animal</option>
+                <option value="Flower">Flower</option>
+           </select>
+                <hr>
+
+      <label for="path">URL de PrimaryImage</label>
+      <input ngModel  type="text" class="form-control" id="path" name="path">
+      <label for="path2">URL de SecondaryImage</label>
+      <input ngModel  type="text" class="form-control" id="path2" name="path2">
+
+      <button [disabled]="addForm.invalid" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>

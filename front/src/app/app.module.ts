@@ -25,6 +25,7 @@ import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.compo
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LogoutGuard } from 'src/services/LogoutGuard/logout.guard';
 import { AddToCartComponent } from './shared/add-to-cart/add-to-cart.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AddToCartComponent } from './shared/add-to-cart/add-to-cart.component';
     CartTagComponent,
     CartTagListComponent,
     CheckoutComponent,
-    AddToCartComponent
+    AddToCartComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

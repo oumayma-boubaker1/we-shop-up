@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class SpecialEventsComponent implements OnInit {
 
 
-  specialEvents = []
+  specialEvents = [];
 
   constructor(private homeService: HomeService,
               private router: Router) { }

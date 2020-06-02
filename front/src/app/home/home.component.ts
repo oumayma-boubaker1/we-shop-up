@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from '../../services/home/home.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,15 +7,10 @@ import { HomeService } from '../../services/home/home.service';
 export class HomeComponent implements OnInit {
 
 
-home = [];
-constructor(private homeService: HomeService) { }
+
+constructor() { }
 
 ngOnInit() {
-  this.homeService.getEvents()
-    .subscribe(
-      res => this.home = res,
-      err => console.log(err)
-    );
 }
 
 }

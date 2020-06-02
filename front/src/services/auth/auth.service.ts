@@ -19,7 +19,7 @@ export class AuthService {
     }
     logoutUser() {
       localStorage.removeItem('token');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/special-events']);
     }
     getToken() {
       return localStorage.getItem('token');

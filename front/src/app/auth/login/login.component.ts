@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
      res => {
        console.log ('res', res );
        localStorage.setItem('token', res.token );
-       this.router.navigate(['/special-events'] );
+       this.router.navigate(['/home'] );
      },
      err => console.log(err)
    );

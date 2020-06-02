@@ -9,7 +9,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SpecialEventsComponent } from './shared/special-events/special-events.component';
 import { AuthGuard } from '../services/auth.guard/auth.guard';
-import { HomeService } from '../services/home/home.service';
 import { AuthService } from '../services/auth/auth.service';
 import { TokenInterceptorService } from '../services/token-interceptor/token-interceptor.service';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
@@ -25,7 +24,7 @@ import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.compo
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LogoutGuard } from 'src/services/LogoutGuard/logout.guard';
 import { AddToCartComponent } from './shared/add-to-cart/add-to-cart.component';
-import { AddProductComponent } from './add-product/add-product.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +53,7 @@ import { AddProductComponent } from './add-product/add-product.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard, HomeService, LogoutGuard,
+  providers: [AuthService, AuthGuard, LogoutGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

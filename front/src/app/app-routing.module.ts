@@ -10,12 +10,18 @@ import { AddProductComponent } from './product/add-product/add-product.component
 
 
 const routes: Routes = [
+  { path: 'product',
+  children: [
+    {path: 'product-details/:id', component: ProductDetailsComponent}
+    // {path: }
+
+  ]},
   { path: 'login', component: LoginComponent },
-  { path: 'product', component: ProductDetailsComponent},
   { path: 'addProduct', component: AddProductComponent},
-  { path: 'special-events', component: SpecialEventsComponent, canActivate: [AuthGuard] }, // profile de client
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: SpecialEventsComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '', component: HomeComponent },
+
  // otherwise redirect to home
   { path: '**', redirectTo: 'special-events'}
 

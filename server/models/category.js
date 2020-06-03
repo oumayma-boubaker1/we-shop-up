@@ -4,7 +4,7 @@ Joi.objectid = require('joi-objectid')(Joi);
 
 // ! add " unique: true "
 const category_schema = new mongoose.Schema({
-    category_name : {type: String, required : true, enum : ['French','Italian','Irish','Animal', 'Flower', 'Valentine\'s']},
+    category_name : {type: String, required : true, enum : ['Traditional', 'French','Italian','Animal', 'Flower', 'Valentine\'s']},
     description : String,
     
 });

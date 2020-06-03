@@ -21,7 +21,9 @@ router.post('',async (req,res)=>{
      let errors;
      if(errors = product_not_valide(req.body))
          return res.status(400).send(errors.details[0].message)
-     const product = new Product(_.pick(req.body,['category', 'name','Description', 'PrimaryImage', 'SecondaryImage','Price']));
+        // const product = new Product(_.pick(req.body,['category', 'name','Description', 'PrimaryImage', 'SecondaryImage','Price']));
+
+     const product = new Product(req.body);
      //console.log(product);
      let category = await Category.findById(product.category.category_id);
      console.log(category);

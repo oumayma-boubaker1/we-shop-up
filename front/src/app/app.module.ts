@@ -25,6 +25,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { LogoutGuard } from 'src/services/LogoutGuard/logout.guard';
 import { AddToCartComponent } from './shared/add-to-cart/add-to-cart.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AddProductComponent } from './product/add-product/add-product.component
     CartTagListComponent,
     CheckoutComponent,
     AddToCartComponent,
-    AddProductComponent
+    AddProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,

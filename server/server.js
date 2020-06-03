@@ -25,6 +25,8 @@ const api = require('./routes/api');
 const product_router = require('./routes/products');
 const category_router = require('./routes/categories');
 app.use(cors())
+
+
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(bodyParser.json()); 
@@ -41,15 +43,31 @@ process.on('unhandledRejection', (ex) =>{
 });
 
 
-// throw new Error('Something');
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+// throw new Error('Something');
+// app.options('*', cors())
 app.use('/api', api);
 app.use('/products',product_router);
 app.use('/categories',category_router);
-app.use(error);
 
 
 
+  app.use(error);
 
 app.listen(port, function(){
     console.log("Server running on localhost:" + port);

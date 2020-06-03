@@ -7,19 +7,21 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '../services/auth.guard/auth.guard';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
 
 
 const routes: Routes = [
-  { path: 'product',
-  children: [
-    {path: 'product-details/:id', component: ProductDetailsComponent}
-    // {path: }
+  { path: 'product', component: UpdateProductComponent},
+  // children: [
+  //   {path: 'product-details/:id', component: ProductDetailsComponent}
+  //   // {path: }
 
-  ]},
+  // ]},
   { path: 'login', component: LoginComponent },
   { path: 'addProduct', component: AddProductComponent},
+  { path: 'special-events', component: SpecialEventsComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: '', component: SpecialEventsComponent },
+
   { path: 'register', component: RegisterComponent },
 
  // otherwise redirect to home

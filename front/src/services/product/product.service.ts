@@ -6,17 +6,17 @@ import { Product } from 'src/Models/product';
   providedIn: 'root'
 })
 export class ProductService {
- link = 'localhost:3000/products';
+ link = 'localhost:3000/';
   url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
 // productdetail
   getProductDetailsById(productId: number): Observable<Product> {
-    return this.http.get<Product>(`${this.url}product/getProductDetails?productId=${productId}`);
+    return this.http.get<Product>(`${this.link}product/getProductDetails?productId=${productId}`);
   }
 
   addProductAPI(p) {
-    return this.http.post(this.link, p);
+    const headers = { Authorization: '' }
+    return this.http.post(this.link + 'products',{headers}, p);
   }
-
 }

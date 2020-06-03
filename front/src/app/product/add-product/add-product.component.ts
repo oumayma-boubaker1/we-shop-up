@@ -8,6 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+  listCategory = ['Traditional', 'French', 'Italian', 'Animal', 'Flower', 'Valentine\'s'];
+  listOfSizes = ['S', 'M', 'L', 'XL', 'XXL'];
+  listOfColors = ['White', 'Black', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Purple'];
+  selectedColor = '';
+  selectedCategory = '';
+  selectedSize = '';
   erreur = false;
   constructor(private prodService: ProductService,
               private router: Router) { }
@@ -15,10 +21,11 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
   }
   addProduct(newProd) {
-
+    console.log(newProd)
     this.prodService.addProductAPI(newProd).subscribe(
       (response) => {
-        this.router.navigate(['addProduct']);
+        console.log(response);
+       // this.router.navigate(['home']);
       },
       (error) => {
         this.erreur = true;

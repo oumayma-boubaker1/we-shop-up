@@ -11,12 +11,12 @@ import { UpdateProductComponent } from './product/update-product/update-product.
 
 
 const routes: Routes = [
-  { path: 'product', component: UpdateProductComponent},
-  // children: [
-  //   {path: 'product-details/:id', component: ProductDetailsComponent}
+  { path: 'product', component: UpdateProductComponent,
+   children: [
+    {path: 'add', component: AddProductComponent}
   //   // {path: }
 
-  // ]},
+  ]},
   { path: 'login', component: LoginComponent },
   { path: 'addProduct', component: AddProductComponent},
   { path: 'special-events', component: SpecialEventsComponent },

@@ -26,6 +26,7 @@ import { LogoutGuard } from 'src/services/LogoutGuard/logout.guard';
 import { AddToCartComponent } from './shared/add-to-cart/add-to-cart.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { UpdateProductComponent } from './product/update-product/update-product.component';
+import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { UpdateProductComponent } from './product/update-product/update-product.
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbPaginationModule
   ],
   providers: [AuthService, AuthGuard, LogoutGuard,
     {

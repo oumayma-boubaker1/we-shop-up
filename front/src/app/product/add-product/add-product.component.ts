@@ -21,7 +21,7 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
   }
   addProduct(newProd) {
-    console.log(newProd)
+    // console.log(newProd)
     this.prodService.addProductAPI(newProd).subscribe(
       (response) => {
         console.log(response);

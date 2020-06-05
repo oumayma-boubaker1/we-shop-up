@@ -6,7 +6,7 @@ import { Product } from 'src/Models/product';
   providedIn: 'root'
 })
 export class ProductService {
- link = 'localhost:3000/';
+ link = 'http://localhost:3000/';
   url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 

@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-// loginUser () {
-  // this._auth.loginUser(this.loginUserData)
 
   loginUser() {
     console.log ('form'),

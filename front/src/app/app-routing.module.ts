@@ -11,14 +11,14 @@ import { UpdateProductComponent } from './product/update-product/update-product.
 
 
 const routes: Routes = [
-  { path: 'product', component: UpdateProductComponent,
+  { path: 'productlist', component: UpdateProductComponent,
    children: [
     {path: 'add', component: AddProductComponent}
   //   // {path: }
 
   ]},
   { path: 'login', component: LoginComponent },
-  { path: 'addProduct', component: AddProductComponent},
+  // { path: 'addProduct', component: AddProductComponent},
   { path: 'special-events', component: SpecialEventsComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
 

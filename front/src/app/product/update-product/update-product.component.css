@@ -2,3 +2,10 @@
     margin-top: 30px;
 }
 
+.formProduct {
+    padding: 30px;
+    margin: 30px;
+ border-radius: 10px;
+ border-style: double;
+ border-color: #3b4046;
+}

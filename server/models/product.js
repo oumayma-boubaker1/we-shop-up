@@ -14,14 +14,9 @@ const product_schema = new mongoose.Schema({
     Price: Number,
     DescountedPrice: Number,
     ProductCount: Number,
-    Color: {
-        type: String, 
-        enum : ['White', 'Black', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Purple']
-    },
-    Size:{
-        type: String, 
-        enum : ['S', 'M', 'L', 'XL', 'XXL']
-    },
+    Color: String,
+    Size: String, 
+    
     category : {
         category_id : {
             type: mongoose.Schema.ObjectId, 
@@ -42,7 +37,7 @@ const product_schema = new mongoose.Schema({
 
 const product_validation_schema= {
    
-    name: Joi.string().min(4).required(),
+    name: Joi.string().min(4),
     Description: Joi.string(),
     PrimaryImage: Joi.string(),
     SecondaryImage: Joi.string(),

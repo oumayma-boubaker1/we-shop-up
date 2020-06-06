@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container col-md-12">
     
       <form #addForm="ngForm" (ngSubmit)="addProduct(addForm.value)">
         <label for="name">name</label>
@@ -11,7 +11,7 @@
        
         <label for="Price">Price</label>
           <input ngModel required type="number" class="form-control" id="Price" name="Price">
-        <label for="DescountedPrice">DescountedPrice</label>
+        <label for="DescountedPrice">Discounted Price</label>
           <input ngModel required type="number" class="form-control" id="DescountedPrice" name="DescountedPrice">
         <label for="ProductCount">ProductCount</label>
           <input ngModel required type="number" class="form-control" id="ProductCount" name="ProductCount">
@@ -32,7 +32,7 @@
               <br>
         <label for="category">category</label>
           <select class="form-control" [(ngModel)]="selectedCategory" id="category"  name="category" >
-            <option *ngFor="let item of listCategory" [value]="item">{{item}}</option>
+            <option *ngFor="let item of listCategory" [value]="item._id">{{item.category_name}}</option>
           </select>
               <br>     
               <hr> 
@@ -44,10 +44,11 @@
         <label for="path2">URL de SecondaryImage</label>
           <input ngModel  type="text" class="form-control" id="path2" name="path2">
           <br>
-          <div class="alert alert-info" *ngIf="erreur">
+          <div class="alert alert-danger" *ngIf="erreur">
             Sorry ! we can't add this product
           </div>
           <br>
+         
         <div class="quickview-plus-minus">   
           <div class="quickview-btn-cart">
             <button [disabled]="addForm.invalid"  class="btn-style cr-btn"><span>add new product</span></button>

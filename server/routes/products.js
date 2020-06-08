@@ -72,7 +72,7 @@ router.get('/id/:id',async (req,res)=>{
     let errors;
     if(errors=objectid_not_valid(req.params))
         return res.status(400).send(errors.details[0].message)
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(1);
     if(! product)
         return res.status(204).end();
     res.send(product);

@@ -79,5 +79,7 @@ export class AddProductComponent implements OnInit {
 
   }
 
-
+  onReset(addForm){
+    addForm.reset();
+  }
 }

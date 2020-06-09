@@ -6,3 +6,19 @@
  border-style: double;
  border-color: #3b4046;
 }
+.btn-outline-secondary{
+    background-color: #5276a3;
+    border-radius: 0;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding: 14px 33px 12px;
+    position: relative;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in-out 0s;
+    overflow: hidden;
+    z-index: 99;
+}

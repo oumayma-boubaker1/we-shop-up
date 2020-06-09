@@ -49,11 +49,14 @@
           </div>
           <br>
          
-        <div class="quickview-plus-minus">   
+        <div class="quickview-plus-minus">
+            
           <div class="quickview-btn-cart">
             <button [disabled]="addForm.invalid"  class="btn-style cr-btn"><span>add new product</span></button>
           </div>
+          <div class="quickview-btn-cart">
+          <button class="btn btn-outline-secondary" (click)="onReset(addForm)">Reset</button>
         </div>
-         
+      </div>
       </form>
   </div>

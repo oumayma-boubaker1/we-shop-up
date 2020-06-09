@@ -52,7 +52,6 @@ export class EditProductComponent implements OnInit {
 
     console.log('edit');
 
-
     this.prodService.EditProduct(this.product, this.id).subscribe(
       (response) => {
         console.log(response);
@@ -64,6 +63,7 @@ export class EditProductComponent implements OnInit {
       }
     );
   }
+
 // TODO delete(id)
 
 }

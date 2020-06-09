@@ -72,7 +72,7 @@ router.get('/id/:id',async (req,res)=>{
     let errors;
     if(errors=objectid_not_valid(req.params))
         return res.status(400).send(errors.details[0].message)
-    const product = await Product.findById(1);
+    const product = await Product.findById(req.params.id);
     if(! product)
         return res.status(204).end();
     res.send(product);
@@ -127,7 +127,7 @@ router.get('/count/Price/min/:min_price/max/:max_price', async (req,res)=>{
 router.get('/name/like/:part_name', async (req,res)=>{
     if(errors= product_opt_not_valide(req.params))
         return res.status(400).send(errors.details[0].message)
-    const products = await Product.find({name : { $regex : req.params.part_name, $options:"i"}})
+    const products = await Product.find({name : { $regex : req.params.part_name, $options:"i"}})  //  $options:"i" ignore case
                                     .select('name');
     res.send(products);
 })

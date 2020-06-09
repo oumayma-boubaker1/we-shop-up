@@ -1,0 +1,63 @@
+
+<div class="container col-md-12">
+    
+  <form>
+          <label for="name">name</label>
+          <!-- [(ngModel)]="product.name"  -->
+      <input  [(ngModel)]="product.name"  type="text" class="form-control" id="name" name="name">
+    <label for="Description">Description</label>
+      <input [(ngModel)]="product.Description"    type="text" class="form-control" id="Description" name="Description">
+    <label for="Thumbnail">Thumbnail</label>
+      <input [(ngModel)]="product.Thumbnail"   type="text" class="form-control" id="Thumbnail" name="Thumbnail">
+   
+    <label for="Price">Price</label>
+      <input [(ngModel)]="product.Price"  type="number" class="form-control" id="Price" name="Price">
+    <label for="DescountedPrice">Discounted Price</label>
+      <input [(ngModel)]="product.DescountedPrice"  type="number" class="form-control" id="DescountedPrice" name="DescountedPrice">
+    <label for="ProductCount">Quantity</label>
+      <input [(ngModel)]="product.ProductCount"  type="number" class="form-control" id="ProductCount" name="ProductCount">
+        <br>
+        <hr>      
+        <br>
+    <label for="Color">Color</label>
+      <select class="form-control"  id="Color" [(ngModel)]="product.Color"  name="Color">
+          <option *ngFor="let i of listOfColors" [value]="i">{{i}}</option>
+        </select>
+          
+    <label for="Size">Size</label>
+      <select class="form-control" [(ngModel)]="product.Size" id="Size" name="Size">
+        <option *ngFor="let item of listOfSizes" [value]="item">{{item}}</option>
+      </select>
+          <br>
+          <hr>
+          <br>
+    <label for="category">category</label>
+      <select class="form-control" [(ngModel)]="product.category.category_id" id="category"  name="category" >
+        <option *ngFor="let item of listCategory" [value]="item._id">{{item.category_name}}</option>
+      </select>
+          <br>     
+          <hr> 
+          <br>
+                
+            
+    <label for="path">URL de PrimaryImage</label>
+      <input [(ngModel)]="product.PrimaryImage" type="text" class="form-control" id="path" name="path">
+    <label for="path2">URL de SecondaryImage</label>
+      <input [(ngModel)]="product.SecondaryImage"  type="text" class="form-control" id="path2" name="path2">
+      <br>
+      <div class="alert alert-danger" *ngIf="erreur">
+        Sorry ! we can't add this product
+      </div>
+      <br>
+     
+    <div class="quickview-plus-minus">   
+      <div class="quickview-btn-cart">
+        <!-- (click)="OnUpdate()" -->
+        <button (click)="updateProduct()"  class="btn-style cr-btn">
+          <span>Edit product</span>
+        </button>
+      </div>
+    </div>
+     
+  </form>
+</div>

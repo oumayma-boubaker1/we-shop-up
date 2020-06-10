@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http' ;
 import { Router } from '@angular/router' ;
+import {User} from '../../Models/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,10 +12,10 @@ export class AuthService {
               private router: Router) { }
 
 
-    registerUser(user) {
+    registerUser(user: User) {
       return this.http.post<any>(this.registerUrl, user);
     }
-    loginUser(user) {
+    loginUser(user: User) {
       return this.http.post<any>(this.loginUrl, user);
     }
     logoutUser() {

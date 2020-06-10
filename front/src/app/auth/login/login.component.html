@@ -24,8 +24,8 @@
             <div class="text-center text-muted mb-4">
               <small>Or sign in with credentials</small>
             </div>
-            <form role="form" >
-              <!-- <form #f="ngForm" >
+            <form role="form"  #f="ngForm" (ngSubmit)="loginUser(f)" >
+              <!-- <form>
               -->
 
                           <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
@@ -37,49 +37,49 @@
                               <!--   svp pourquoi si je fait tow way baiding ne marche pas  [(ngModel)]="loginUserData.email" name="email" required> -->
                               <input ngModel #log="ngModel" required email type="text" class="form-control" id="login" name="login"   (focus)="focus=true" (blur)="focus=false">
                               <br><br>
-                              <div class="alert alert-danger" *ngIf="log.invalid && log.dirty">Login must be an email</div>
+                              <!-- <div class="alert alert-danger" *ngIf="log.invalid && log.dirty">Login must be an email</div> -->
 
 
 
 
                             </div>
                           </div>
-                          <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                          <!-- <div class="form-group" [ngClass]="{'focused':focus1===true}">
                             <div class="input-group input-group-alternative">
                               <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                              </div>
+                              </div> -->
 
                               <input ngModel name="password" #password="ngModel" type="password" class="form-control" placeholder="Password"
                               required minlength="6" (focus)="focus1=true" (blur)="focus1=false">
                               <br> <br>
-                              <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+                              <!-- <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
                                 <p *ngIf="password.errors.required">Password is required</p>
                                 <p *ngIf="password.errors.minlength">must be at least 8 characters</p>
 
-                            </div>
+                            </div> -->
 
-                            </div>
-                          </div>
-                          <div class="custom-control custom-control-alternative custom-checkbox">
+                            <!-- </div> -->
+                          <!-- </div> -->
+                          <!-- <div class="custom-control custom-control-alternative custom-checkbox">
                             <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
                             <label class="custom-control-label" for=" customCheckLogin">
                               <span>Remember me</span>
                             </label>
-                          </div>
+                          </div> -->
                           <div class="text-center">
 
 
-                            <button type="button" class="btn btn-primary mt-4" (click)="loginUser()">login</button>
+                            <button type="submit" class="btn btn-primary mt-4" >login</button>
                           </div>
                         </form>
                         <br>
-            <div class="alert alert-danger" *ngIf="loginError">
+            <!-- <div class="alert alert-danger" *ngIf="loginError">
               {{ loginError }}
-            </div>
+            </div> -->
                       </div>
                     </div>
-                    <div class="row mt-3">
+                    <!-- <div class="row mt-3">
                       <div class="col-6">
                         <a href="javascript:void(0)" class="text-light">
                           <small>Forgot password?</small>
@@ -89,8 +89,8 @@
                         <a href="javascript:void(0)" class="text-light">
                           <small>Create new account</small>
                         </a>
-                      </div>
-                    </div>
+                      </div> -->
+                    <!-- </div> -->
                   </div>
                 </div>
               </div>

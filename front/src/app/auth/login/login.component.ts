@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
-import { User } from 'src/app/user';
+import { User } from '../../../Models/user';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,9 +24,16 @@ export class LoginComponent implements OnInit {
   }
 
 
-  loginUser() {
-    console.log ('form'),
-   this.auth.loginUser(this.loginUserData)
+  loginUser(f: NgForm) {
+
+    console.log ('form');
+    console.log(f.value.login);
+    //loginUserData = new userInfo
+    this.loginUserData = {
+      email : f.value.login,
+      password : f.value.password
+    }
+    this.auth.loginUser(this.loginUserData)
    .subscribe(
      res => {
        console.log ('res', res );

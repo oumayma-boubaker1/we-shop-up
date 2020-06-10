@@ -1,16 +1,15 @@
 export class Product {
     ProductId: number;
-    CategoryId: number;
-    CategoryName: string;
     Name: string;
+    categoryid: number;
+    CategoryName: string;
     Description: string;
-    PrimaryImage: string;
-    SecondaryImage: string;
     Thumbnail: string;
-    Display: number;
     Price: number;
     DescountedPrice: number;
     ProductCount: number;
     Color: string;
+    PrimaryImage: string;
+    SecondaryImage: string;
     Size: string;
 }

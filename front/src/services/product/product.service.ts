@@ -43,7 +43,11 @@ export class ProductService {
   //   return this.http.get(this.link + 'products');
   // }
 
-  deleteProductAPI(id): Observable<any> {
-    return this.http.delete(`${this.link}/${id}`);
+  deleteProductAPI(Id: number): Observable<void> {
+    return this.http.delete<void>(`${this.link}products/id/${Id}`);
   }
 }
+  // return this.httpClient.delete<Product>(this.apiServer + '/products/' + id, this.httpOptions)
+  // .pipe(
+  //   catchError(this.errorHandler)
+  // )

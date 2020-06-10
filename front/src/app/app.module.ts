@@ -21,13 +21,13 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { BodyComponent } from './body/body.component';
 import { CartTagComponent } from './shared/cart-tag/cart-tag.component';
 import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutComponent } from './shared/checkout/checkout.component';
 import { LogoutGuard } from 'src/services/LogoutGuard/logout.guard';
 import { AddToCartComponent } from './shared/add-to-cart/add-to-cart.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
-import { UpdateProductComponent } from './product/update-product/update-product.component';
-import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditProductComponent } from './product/edit-product/edit-product.component';
+import { ProductIndexComponent } from './product/product-index/product-index.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,21 +48,26 @@ import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
     CheckoutComponent,
     AddToCartComponent,
     AddProductComponent,
-    UpdateProductComponent
+    ProductIndexComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    NgbPaginationModule
+    NgbPaginationModule,
   ],
-  providers: [AuthService, AuthGuard, LogoutGuard,
+  providers: [
+    AuthService,
+    AuthGuard,
+    LogoutGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
-      multi: true
-    }],
-    bootstrap: [AppComponent]
-  })
-  export class AppModule { }
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}

@@ -64,6 +64,6 @@ export class EditProductComponent implements OnInit {
     );
   }
 
-// TODO delete(id)
+
 
 }

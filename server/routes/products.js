@@ -95,17 +95,26 @@ router.delete('/id/:id',async (req,res)=>{
 //Put by id (update)
 
 router.put('/id/:id', async (req,res)=>{
+   
+    
     let errors;
     if(errors=objectid_not_valid(req.params))
         return res.status(400).send(errors.details[0].message)
-    if(errors= product_opt_not_valide(req.params))
+        console.log('hello2');
+    if(errors= product_not_valide(req.body))
         return res.status(400).send(errors.details[0].message)
+        console.log('hello3');
+
     let product = await Product.findById(req.params.id);
+
+    console.log(JSON.stringify(product));    
     if(! product)
         return res.status(200).send('Product with this id is not found');
+        
+        
     product = _.merge(product,req.body); // rectify if the new data is not like the ancient then it updates
     try{
-        const saved_product = await product.save();
+        const saved_product = await product.save(); 
         return res.status(201).send(saved_product);
     }catch(err){
         return res.status(400).send(`DB error : ${err.message}`)

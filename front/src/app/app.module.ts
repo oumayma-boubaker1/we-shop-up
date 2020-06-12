@@ -18,7 +18,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ProductItemComponent } from './product/product-item/product-item.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { BodyComponent } from './body/body.component';
 import { CartTagComponent } from './shared/cart-tag/cart-tag.component';
 import { CartTagListComponent } from './shared/cart-tag-list/cart-tag-list.component';
 import { CheckoutComponent } from './shared/checkout/checkout.component';
@@ -42,7 +41,6 @@ import { ProductIndexComponent } from './product/product-index/product-index.com
     ProductItemComponent,
     ProductDetailsComponent,
     ShoppingCartComponent,
-    BodyComponent,
     CartTagComponent,
     CartTagListComponent,
     CheckoutComponent,
@@ -56,7 +54,7 @@ import { ProductIndexComponent } from './product/product-index/product-index.com
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    NgbPaginationModule,
+    NgbPaginationModule
   ],
   providers: [
     AuthService,

@@ -1,0 +1,8 @@
+/* <div class="sidebar-widget pb-50">
+<h3 class="sidebar-widget" for="category">by categories</h3>
+<div class="widget-categories">
+    <select class="form-control" [(ngModel)]="selectedCategory" id="category"  name="category" >
+      <option *ngFor="let item of listCategory" [value]="item._id">{{item.category_name}}</option>
+    </select>
+</div>
+</div> */

@@ -25,7 +25,7 @@ const product_schema = new mongoose.Schema({
         category_name: {
             type: String, 
             required : true,
-            enum : ['French','Italian','Irish','Animal', 'Flower', 'Valentine\'s']
+            enum : ['Traditional', 'French','Italian','Animal', 'Flower', 'Valentine\'s']
         }
     }
     

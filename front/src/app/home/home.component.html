@@ -10,22 +10,25 @@
                             <div class="sidebar-widget pb-55">
                                 <h3 class="sidebar-widget">Search Products</h3>
                                 <div class="sidebar-search">
-                                    <form action="#">
+                                    <form >
                                         <input type="text" placeholder="Search Products...">
                                         <button><i class="ti-search"></i></button>
                                     </form>
                                 </div>
                             </div>
                             <div class="sidebar-widget pb-50">
-                                <h3 class="sidebar-widget">by categories</h3>
-                                <div class="widget-categories">
-                                    <ul>
-                                        <li><a href="#">Clothing</a></li>
-                                        <li><a href="#">Bags</a></li>
-                                        <li><a href="#">Shoes</a></li>
-                                        <li><a href="#">Jewelry</a></li>
-                                        <li><a href="#">Accessories</a></li>
-                                    </ul>
+                                <h3 class="sidebar-widget" >by categories</h3>
+                                <div class="widget-categories" for="category">
+                                    <select class="form-control" [(ngModel)]="selectedCategory" id="category"  name="category" >
+                                      <option *ngFor="let item of listCategory" [value]="item._id">{{item.category_name}}</option>
+                                      <option >Traditional</option>
+                                      <option>Flower</option>
+                                      <option>French</option>
+                                      <option>Italian</option>
+                                      <option>Animal</option>
+                                      <option>Valentine's</option>
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="sidebar-widget mb-55">
@@ -41,7 +44,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="sidebar-widget mb-55">
+                            <!-- <div class="sidebar-widget mb-55">
                                 <h3 class="sidebar-widget">by color</h3>
                                 <div class="product-color">
                                     <ul>
@@ -53,8 +56,8 @@
                                         <li class="pink">p</li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="sidebar-widget mb-45">
+                            </div> -->
+                            <!-- <div class="sidebar-widget mb-45">
                                 <h3 class="sidebar-widget">product tags</h3>
                                 <div class="product-tags">
                                     <ul>
@@ -66,8 +69,8 @@
                                         <li><a href="#">Dress</a></li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="sidebar-widget mb-55">
+                            </div> -->
+                            <!-- <div class="sidebar-widget mb-55">
                                 <h3 class="sidebar-widget">compare</h3>
                                 <div class="product-compare">
                                     <ul>
@@ -84,8 +87,8 @@
                                         <a href="#">Compare</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="sidebar-widget">
+                            </div> -->
+                            <!-- <div class="sidebar-widget">
                                 <h3 class="sidebar-widget">best seller</h3>
                                 <div class="best-seller">
                                     <div class="single-best-seller">
@@ -116,7 +119,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
           
@@ -130,10 +133,8 @@
                             </div>
                             <div class="product-sorting">
                                 <div class="shop-product-sorting nav">
-                                    <a class="active" data-toggle="tab" href="#new-product">NEW BIKES </a>
-                                    <a  data-toggle="tab" href="#use-product"> USED BIKES </a>
-                                    <a data-toggle="tab" href="#accessory-product">ACCESSORIES</a>
-                                </div>
+                                    <a class="active" data-toggle="tab">New T-shirts </a>
+                                 </div>
                                 <div class="sorting sorting-bg-1">
                                     <form>
                                         <select class="select">
@@ -151,18 +152,18 @@
                                     <app-product-item></app-product-item>
                                 </div>
                             </div>
-                            <div id="use-product" class="product-grid product-view tab-pane">
+                            <div id="use-product" class="product-grid product-view tab-pane active">
                                 <div class="row">
                                   <app-product-item></app-product-item>
                                 </div>
                             </div>
-                            <div id="accessory-product" class="product-grid product-view tab-pane">
+                            <div id="accessory-product" class="product-grid product-view tab-pane active">
                                 <div class="row">
                                     <app-product-item></app-product-item>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="paginations text-center mt-20">
+                        <div class="paginations text-center mt-20">
                             <ul>
                                 <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
                                 <li><a href="#">1</a></li>
@@ -170,7 +171,7 @@
                                 <li><a href="#">3</a></li>
                                 <li class="active"><a href="#"><i class="fa fa-angle-right"></i></a></li>
                             </ul>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

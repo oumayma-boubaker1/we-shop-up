@@ -10,6 +10,7 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductIndexComponent } from './product/product-index/product-index.component';
+import { CheckoutComponent } from './shared/checkout/checkout.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,10 @@ const routes: Routes = [
   // ]},
   { path: 'login', component: LoginComponent },
   {path: 'details', component: ProductDetailsComponent},
+
+    {path: 'checkout', component: CheckoutComponent},
+
+
   // { path: 'addProduct', component: AddProductComponent},
   { path: 'special-events', component: SpecialEventsComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },

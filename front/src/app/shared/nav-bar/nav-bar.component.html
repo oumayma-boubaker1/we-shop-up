@@ -15,12 +15,16 @@
         </li>
      
         <li class="nav-item">
-          <a class="nav-link" routerLink="/product/list" routerLinkActive="active">products</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" routerLink="/details" routerLinkActive="active">details</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="checkout" routerLinkActive="active">Checkout</a>
+        </li>
 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/product/list" routerLinkActive="active">products</a>
+        </li>
+        
       </ul>
       <ul class="navbar-nav">
         <a class="nav-link"  routerLink="/login" *ngIf="!authService.loggedIn()" routerLinkActive="active">Login</a>

@@ -11,8 +11,9 @@
                 class="img-fluid " [alt]="product.Name">
             </div>
             <div class="d-flex product-image pt-2 pb-2">
-              <img [src]="'/assets/assets/images/' + product.SecondaryImage" *ngIf="product.SecondaryImage"
-                class="img-fluid " [alt]="product.Name">
+              <img class="card-img-top" src="assets/assets/img/product-details/arc-d-triomphe.gif" alt="Card image cap">
+              <!-- <img [src]="'/assets/assets/images/' + product.SecondaryImage" *ngIf="product.SecondaryImage"
+                class="img-fluid " [alt]="product.Name"> -->
             </div>
           </div>
           <div class="" style="margin-top:15px">
@@ -21,7 +22,7 @@
                 <div>
                   <h6 class="my-0">Product Price</h6>
                 </div>
-                <span class="text-muted" style="color:crimson !important">${{product.Price}}</span>
+                <span class="text-muted" style="color:crimson !important">{{product.Price}}14.25 TND</span>
               </li>
             </ul>
           </div>
@@ -34,18 +35,18 @@
             <tbody>
               <tr>
                 <th scope="row">Product Name</th>
-                <td>{{product.Name}}</td>
+                <td>{{product.Name}}Arc-de-Triomphe</td>
               </tr>
               <tr>
                 <th scope="row">Product Description</th>
-                <td>{{product.Description}}</td>
+                <td>{{product.Description}} This beautiful and iconic T-shirt will no doubt lead you to your own triumph.</td>
               </tr>
               <tr>
                 <th scope="row">Product Category</th>
                 <td>
                   <!--   -->
                   <a href="">
-                    <span class="badge blue mr-1">{{product.CategoryName}}</span>
+                    <span class="badge blue mr-1">{{product.CategoryName}} French</span>
                   </a>
                 </td>
               </tr>
@@ -71,6 +72,13 @@
                   </select>
                 </td>
               </tr>
+              <div class="quickview-plus-minus">
+                    
+                <div class="quickview-btn-cart">
+                    <a class="btn-style cr-btn" routerLink="/checkout" ><span>add to cart</span></a>
+                </div>
+
+            </div>
               <tr>
 
             </tbody>

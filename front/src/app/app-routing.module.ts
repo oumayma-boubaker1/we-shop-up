@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {path: 'details', component: ProductDetailsComponent},
 
-    {path: 'checkout', component: CheckoutComponent},
+  {path: 'checkout', component: CheckoutComponent},
 
 
   // { path: 'addProduct', component: AddProductComponent},
